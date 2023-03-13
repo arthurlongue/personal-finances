@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", setup)
 async function saveTransaction(ev) {
   ev.preventDefault()
 
-  const id = document.querySelector("#id").value
+  let id = document.querySelector("#id").value
   const name = document.querySelector("#name").value
   const amount = parseFloat(document.querySelector("#amount").value)
 
@@ -108,6 +108,7 @@ async function saveTransaction(ev) {
       body: JSON.stringify({ name, amount, id }),
     })
     editTransaction(name, amount, id)
+    document.querySelector("#id").removeAttribute("value")
   } else {
     const response = await fetch("http://localhost:3000/transactions", {
       method: "POST",
