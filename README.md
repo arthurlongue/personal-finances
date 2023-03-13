@@ -10,3 +10,4 @@ Thanks for checking out this project.
 
 Clone repository
 Install json-server
+Run npm run server
